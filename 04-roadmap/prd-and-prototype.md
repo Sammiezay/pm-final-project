@@ -1,14 +1,13 @@
-# PRD & Prototype Sprint
+# PRD & Prototype Sprint (Module 4)
 
-> **Module 4 · Lab 2.** Repo file `04-roadmap/prd-and-prototype.md` — part of your submission.
-> Do the lab in the **Module 4 · Exercise 2 Guide** (linked from the Module 4 deck), then click **⬇ Download .md** — it saves as this exact file. Commit it here.
-> It deepens the top feature from your `roadmap-prd-prototype.md` and feeds the **Roadmap, PRD & Prototype** slide of your Module 6 deck.
+## Pick & scope with MoSCoW
+- **The “Now” feature I’m scoping (name + one-line core description):** One-Click Compliance Checklist (B1): A simplified, pre-filled compliance checklist that enables dispatch coordinators to verify driver readiness, complete mandatory checks and approve drivers for dispatch quickly and accurately.
+- **My finalized Must-Haves (after overriding the AI):** Display mandatory compliance checks;  allow coordinators to confirm each check; prevent dispatch approval when required checks are incomplete; show clear completion status. restrict access to authorised users.
+- **What I demoted from Must → Should/Won’t, and why:** Pre-fill available driver information. I removed this because of data protection and privacy.
 
-## Responses
+## Generate your Simplified PRD
+- **One thing my PRD makes explicit that a vague brief would have missed:** My PRD explicitly defines that dispatch approval must remain disabled until every mandatory compliance check has been manually confirmed. It also excludes automatic pre-filling of driver information to minimise data privacy risks. A vague brief might have focused only on speeding up the process without specifying these essential safety and approval controls.
 
-- **The "Now" feature I'm scoping (name + one-line core description):** _(not filled in)_
-- **My finalized Must-Haves (after overriding the AI):** _(not filled in)_
-- **What I demoted from Must → Should/Won't, and why:** _(not filled in)_
-- **One thing my PRD makes explicit that a vague brief would have missed:** _(not filled in)_
-- **Where the prototype revealed a gap in my PRD logic (what I updated):** _(not filled in)_
-- **My shareable prototype URL:** _(not filled in)_
+## Prompt-to-prototype sprint
+- **Where did the prototype reveal a gap in my PRD logic? (what I had to update):** esting the prototype highlighted the need to make the handling of incomplete compliance checks more explicit. Although my PRD required all five checks before dispatch approval, I needed to clarify how the interface should communicate outstanding requirements, prevent premature approval and handle changes to previously confirmed checks.
+- **My prototype, as a link or a screenshot (publish or share from your tool; in Lovable that is Share → Share Preview, in Bolt Publish → Web. No share URL? Screenshot the working flow):** https://lovable.dev/preview/Kf2SKzSewuyxf0CUDyrOOlJdu1xeNKR5
