@@ -1,25 +1,29 @@
-# Experimentation Plan
+# Experimentation Plan (Module 5)
 
-> **Module 5 · ★ Deliverable 5.** Repo file `05-experimentation/experimentation-plan.md` — part of your submission.
-> Do the lab in the **Module 5 · Exercise Guide** (linked from the Module 5 deck), then click **⬇ Download .md** — it saves as this exact file. Commit it here.
-> It becomes the **Experimentation Plan** slide of your Module 6 final deck.
+## Get your documents ready
+- **From M3, your hypothesis sentence:** Based on qualitative evidence of complex workflows and manual workarounds, supported by quantitative data showing that compliance checks take 14.6 minutes against a 3-minute benchmark, we believe that simplifying compliance and dispatch workflows for RouteLogic dispatch coordinators will improve operational efficiency and workflow completion. We expect a 30% reduction in compliance-check completion time and a 15-percentage-point increase in workflow completion within four weeks, without compromising compliance accuracy or dispatch reliability.
+- **From M3, your primary success metric & guardrail metric:** Primary success metric: 30% reduction in average compliance-check completion time within four weeks, with a supporting target of a 15-percentage-point increase in workflow completion.
+Guardrail metric: Maintain compliance accuracy and dispatch reliability at or above the existing baseline.
+- **From M4, the feature you scoped in your PRD this is what you're testing:** One-Click Compliance Checklist: A simplified checklist that enables dispatch coordinators to complete and confirm mandatory compliance checks efficiently, with clear progress visibility and approval blocked until all required checks are completed.
 
-## Overview
+## Define your experiment parameters
+- **Feature under test pull from your M4 PRD:** One-Click Compliance Checklist.
+- **Persona pull your M2 persona:** Fleet Dispatch Coordinator responsible for daily dispatch operations and mandatory compliance checks.
+- **Expected outcome the behaviour change you expect, from your M3 hypothesis:** Coordinators complete mandatory compliance checks faster, with fewer manual workarounds and higher workflow completion.
+- **Primary success metric the one number that defines success, from M3:** 30% reduction in average compliance-check completion time within four weeks
+- **Baseline rate today's rate of your primary metric, from your M3 data:** Current average compliance-check completion time is 14.6 minutes per check, compared with a benchmark of 3 minutes.
+- **Guardrail metric & boundary what must not break, and how far it can move before you investigate:** Compliance accuracy must remain at or above the existing baseline. Investigate any increase in incorrectly approved or incomplete compliance checks; pause the experiment if a material compliance risk is identified.
+- **Minimum Detectable Effect (MDE) the smallest improvement worth shipping, your floor:** A minimum 30% reduction in average compliance-check completion time, from 14.6 minutes to 10.22 minutes or less.
+- **Sample size per arm use the calculator in the builder, baseline + MDE:** Provisional calculator estimate: 165 users per arm (330 total), using a 31% shift-handoff completion baseline and a 15-percentage-point MDE. This sample size is not validated for the compliance-check time metric.
+- **Traffic split & test duration 50/50 standard · cover ≥ 2 weekly cycles:** 50/50 randomised split between control and variant groups over 28 days (four weeks), covering at least four weekly dispatch cycles. Extend if necessary to reach the required sample size.
+- **Significance threshold p < 0.05 is standard, explain any deviation:** p < 0.05 (95% confidence level), with 80% statistical power.
 
-_A high-level validation strategy to test your hypothesis before full-scale development._
+## Define your control and variant
+- **Control (A) the current experience, reference your M2 moment of misery and M3 funnel/workflow data:** Dispatch coordinators use the existing RouteLogic compliance workflow, which involves navigating multiple steps, manually checking requirements and recording completion. This creates delays, repetitive work and limited visibility of progress. M3 data shows that compliance checks currently take an average of 14.6 minutes, significantly above the 3-minute benchmark. The existing workflow remains unchanged for the control group.
+- **Variant (B) your single change, copy the relevant screens & functional requirements from your M4 PRD:** Introduce the One-Click Compliance Checklist from the M4 PRD. Dispatch coordinators access a consolidated checklist showing mandatory compliance requirements, completion status and a visible progress indicator. Required checks must be completed before final confirmation is enabled. The feature provides clear success feedback after submission, reducing manual navigation and improving workflow efficiency without removing mandatory compliance steps.
+- **Isolation check, what has NOT changed? list everything identical between arms (app version, recommendation engine, notifications, onboarding). If something changed inadvertently, your test is compromised.:** Both groups use the same RouteLogic app version, dispatch workflow, compliance requirements, user permissions, notifications, reporting features, onboarding process and underlying data. No changes are made to the recommendation engine, driver alerts or other product features. The only difference is the introduction of the One-Click Compliance Checklist in Variant B.
 
-_____
-
-## What you're testing
-
-| Element | Detail |
-|---|---|
-| Hypothesis under test | _____ |
-| Experiment design (A/B, etc.) | _____ |
-| Primary metric | _____ |
-| Guardrail metric | _____ |
-| Decision rule (ship / kill / pivot) | _____ |
-
-## Findings & decision _(after running it)_
-
-_____
+## Formalize your hypothesis & shipping criteria
+- **Your hypothesis (filled in):** We believe introducing the One-Click Compliance Checklist will help RouteLogic dispatch coordinators complete mandatory compliance checks more efficiently. We expect a 30% reduction in average completion time, from 14.6 minutes to 10.22 minutes, within four weeks, without compromising compliance accuracy or dispatch reliability.
+- **Your shipping criteria (filled in):** Ship the feature if the experiment demonstrates a statistically significant improvement in compliance-check completion time (p < 0.05), achieves at least a 30% reduction from the 14.6-minute baseline, and maintains compliance accuracy and dispatch reliability. If the improvement is insufficient or the guardrail is breached, investigate and iterate before rollout.
+- **Hardest parameter to define, and did it change your hypothesis? quick debrief:** The hardest parameter to define was the baseline rate because our M3 evidence measured compliance-check completion time in minutes rather than a percentage. This highlighted the importance of aligning the experiment's primary metric with the available data and selecting an appropriate sample-size calculation. It did not change the underlying hypothesis, but it made the measurement approach and success criteria more precise.
